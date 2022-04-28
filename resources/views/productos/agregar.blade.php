@@ -22,33 +22,43 @@
                 <div class="card-header mt-4">
                     <h2>Agregar Productos </h2>
                 </div>
-                <div class="mb-3 mt-4">
-                    <label for="exampleFormControlInput1" class="form-label">ID Material</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="ID Material">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <div class="row justify-content-evenly">
-                    <div class="mb-3 col-6">
-                        <label for="exampleFormControlInput1" class="form-label">Unidad de Medida</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                            placeholder="Unidad de Medida">
+                <div class="card-header card2">
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
                     </div>
-                    <div class="mb-3 col-6">
-                        <label for="exampleFormControlInput1" class="form-label">Precio</label>
-                        <input type="number" step="any" class="form-control" id="exampleFormControlInput1" placeholder="Precio">
-                    </div>
-                </div>
-                <div class="col-12 botones d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                    @endif
+                    <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data"
+                        class="row g-3">
+                        <div class=" mt-4">
+                            <label for="exampleFormControlInput1" class="form-label">ID Material</label>
+                            <input type="text" class="form-control" name="id_material" placeholder="ID Material" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                            <textarea class="form-control" name="descripcion" rows="3" required></textarea>
+                        </div>
+                        <div class="row justify-content-evenly">
+                            <div class="mb-3 col-6">
+                                <label for="exampleFormControlInput1" class="form-label">Unidad de Medida</label>
+                                <input type="text" class="form-control" name="unidad_medida"
+                                    placeholder="Unidad de Medida" required>
+                            </div>
+                            <div class="mb-3 col-6">
+                                <label for="exampleFormControlInput1" class="form-label">Precio</label>
+                                <input type="number" step="any" class="form-control" name="precio_1"
+                                    placeholder="Precio" required>
+                            </div>
+                        </div>
+                        <div class="col-12 botones d-grid gap-2 d-md-flex justify-content-md-end mt-4">
                             @csrf
                             <input type="submit" class="btn btn-outline-primary" value="Guardar">
-                            <a href="/home">
+                            <a href="/">
                                 <input type="button" class="btn btn-outline-dark" value="Regresar">
                             </a>
                         </div>
-
+                    </form>
+                </div>
             </div>
         </div>
     </div>

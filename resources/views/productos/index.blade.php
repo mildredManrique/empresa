@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-sm-8 mx-auto">
             <div class="card-header">
-                <h2>Productos <a href="/agregar"><button type="submit" class="btn btn-outline-primary">Agregar
+                <h2>Productos <a href="productos/agregar"><button type="submit" class="btn btn-outline-primary">Agregar
                             producto</button></a></h2>
             </div>            
                 <table class="table">
@@ -42,20 +42,11 @@
                         <td>{{$producto->unidad_medida}}</td>
                         <td>{{$producto->precio_1}}</td>
                         <td>
-                        <form action="{{route('productos.edit',  $producto)}}" method="POST">                               
-                                @csrf
-                                <a hrf="#">
-                                <input
-                                    type="submit"
-                                    value="Editar"
-                                    class="btn btn-outline-success"
-                                    >
-                                </a>
-                        </form>
+                       Editar
                         </td>
                         <td>
                             <form action="{{route('productos.destroy', $producto->id_material)}}" method="POST">
-                             @method('POST')
+                             @method('DELETE')
                              @csrf
                                 <input
                                     type="submit"

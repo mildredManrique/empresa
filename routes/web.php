@@ -12,9 +12,10 @@
 */
 
 Route::get('/', 'ProductoController@index');
-Route::post('productos', 'ProductoController@store')->name('productos.store');
+
+Route::get('productos/agregar', 'ProductoController@create')->name('productos.create');
 Route::post('productos', 'ProductoController@edit')->name('productos.edit');
-Route::post('productos/{producto}', 'ProductoController@destroy')->name('productos.destroy');
+Route::delete('productos/{producto}', 'ProductoController@destroy')->name('productos.destroy');
 
-Route::get('/agregar', 'AgregarController@index');
-
+// Route::get('/agregar', 'ProductoController@store');
+Route::post('productos', 'ProductoController@store')->name('productos.store');

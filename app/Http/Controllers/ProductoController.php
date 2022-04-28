@@ -21,12 +21,19 @@ class ProductoController extends Controller
     public function store(Request $request){
 
         Producto::create([
+            'id_material'=>$request->id_material,
             'descripcion' => $request->descripcion,
             'unidad_medida' => $request->unidad_medida,
             'precio_1' => $request ->precio_1
         ]);
 
-        return back();   
+        return back()->with('status', 'Creado con éxito');   
+     }
+
+     public function create(){
+
+        
+        return view('productos.agregar');   
      }
 
      public function edit(Request $request){
