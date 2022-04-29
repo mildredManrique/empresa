@@ -19,10 +19,11 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 mx-auto">
-            <div class="card-header">
-                <h2>Productos <a href="productos/agregar"><button type="submit" class="btn btn-outline-primary">Agregar
-                            producto</button></a></h2>
-            </div>            
+                <div class="card-header">
+                    <h2>Productos <a href="productos/agregar"><button type="submit"
+                                class="btn btn-outline-primary">Agregar
+                                producto</button></a></h2>
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -35,31 +36,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach ($productos as $producto)
-                    <tr>
-                        <td>{{$producto->id_material}}</td>
-                        <td>{{$producto->descripción}}</td>
-                        <td>{{$producto->unidad_medida}}</td>
-                        <td>{{$producto->precio_1}}</td>
-                        <td>
-                       Editar
-                        </td>
-                        <td>
-                            <form action="{{route('productos.destroy', $producto->id_material)}}" method="POST">
-                             @method('DELETE')
-                             @csrf
-                                <input
-                                    type="submit"
-                                    value="Eliminar"
-                                    class="btn btn-sm btn-danger"
-                                    onclick="return confirm('¿{{$producto->id_material}}?')">
-
-                            </form>
-                        </td>
-                        
-                        
-                    </tr>                        
-                    @endforeach
+                        @foreach ($productos as $producto)
+                        <tr>
+                            <td>{{$producto->id_material}}</td>
+                            <td>{{$producto->descripcion}}</td>
+                            <td>{{$producto->unidad_medida}}</td>
+                            <td>${{$producto->precio_1}}</td>
+                            <td>
+                                @csrf
+                                <a href="{{'productos/'.$producto->id_material.'/editar'}}">
+                                    <input type="submit" value="Editar" class="btn btn-outline-success">
+                                </a>
+                            </td>
+                            <td>
+                                <form action="{{route('productos.destroy', $producto->id_material)}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <input type="submit" value="Eliminar" class="btn btn-outline-danger"
+                                        onclick="return confirm('¿Seguro que desea eliminar...?')">
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

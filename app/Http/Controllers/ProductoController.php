@@ -18,6 +18,7 @@ class ProductoController extends Controller
 
     }
 
+
     public function store(Request $request){
 
         Producto::create([
@@ -30,22 +31,40 @@ class ProductoController extends Controller
         return back()->with('status', 'Creado con éxito');   
      }
 
-     public function create(){
 
+
+     public function create(){
         
-        return view('productos.agregar');   
+        return view('productos.agregar');  
+
      }
 
-     public function edit(Request $request){
+     
 
-        Producto::edit([
+     public function edit($id_material)
+     {
+        $producto = Producto::where('id_material', '=', $id_material)->first();       
+        
+        return view('productos.editar', compact('producto')) ;
+     }
+
+
+
+     public function update(Request $request, $id_material)
+    {
+        DB::table('productos')
+        ->where('id_material', $id_material)
+        ->update([
+            // 'id_material' => $request->id_material,
             'descripcion' => $request->descripcion,
             'unidad_medida' => $request->unidad_medida,
-            'precio_1' => $request ->precio_1
+            'precio_1' => $request->precio_1,
         ]);
+        
+        return back()->with('status', 'Actualizado con éxito');
+    }
 
-        return back();   
-     }
+    
 
     public function destroy($id_material){
 
