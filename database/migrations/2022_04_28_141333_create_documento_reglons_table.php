@@ -15,7 +15,7 @@ class CreateDocumentoReglonsTable extends Migration
     {
         Schema::create('documento_reglons', function (Blueprint $table) {
             $table->bigIncrements('id_codigo', 11);
-            $table->char('unidad_medida', 10);
+            $table->string('unidad_medida', 10);
             $table->double('cantidad', 13, 3);
             $table->double('precio_1', 13, 3);                       
             $table->timestamps();

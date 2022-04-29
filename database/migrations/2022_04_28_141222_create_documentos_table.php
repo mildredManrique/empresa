@@ -15,8 +15,8 @@ class CreateDocumentosTable extends Migration
     {
         Schema::create('documentos', function (Blueprint $table) {
             $table->bigIncrements('id_codigo', 11);
-            $table->char('razon_social', 60);
-            $table->char('rfc', 15)->unique(); 
+            $table->string('razon_social', 60);
+            $table->string('rfc', 15)->unique(); 
             $table->double('subtotal', 13, 3);
             $table->double('iva', 13, 3);
             $table->double('total', 13, 3);            

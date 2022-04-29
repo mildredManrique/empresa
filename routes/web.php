@@ -17,3 +17,10 @@ Route::get('productos/agregar', 'ProductoController@create')->name('productos.cr
 Route::put('productos/{producto}', 'ProductoController@update')->name('productos.update');
 Route::delete('productos/{producto}', 'ProductoController@destroy')->name('productos.destroy');
 Route::get('productos/{producto}/editar', 'ProductoController@edit')->name('productos.edit');
+
+Route::get('/clientes', 'ClienteController@index');
+Route::post('/clientes', 'ClienteController@store')->name('clientes.store');
+Route::get('/clientes/agregar', 'ClienteController@create')->name('clientes.create');
+Route::put('/clientes/{cliente}', 'ClienteController@update')->name('clientes.update');
+Route::delete('/clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
+Route::get('/clientes/{cliente}/editar', 'ClienteController@edit')->name('clientes.edit');

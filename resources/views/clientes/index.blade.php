@@ -20,41 +20,39 @@
         <div class="row">
             <div class="col-sm-8 mx-auto">
                 <div class="card-header">
-                    <h2>Productos
-                        <a href="productos/agregar">
-                            <input type="submit" class="btn btn-outline-primary" value="Agregar Producto">
+                    <h2>Clientes
+                        <a href="clientes/agregar">
+                            <input type="button" class="btn btn-outline-primary" value="Agregar Clientes">
                         </a>
-                        <a href="/clientes">
-                            <input type="button" class="btn btn-outline-primary" value="Clientes">
+                        <a href="/">
+                            <input type="submit" class="btn btn-outline-primary" value="Productos">
                         </a>
                     </h2>
                 </div>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>ID_Material</th>
-                            <th>Descripción</th>
-                            <th>Unidad_Medida</th>
-                            <th>Precio_1</th>
+                            <th>ID_Cliente</th>
+                            <th>Razón Social</th>
+                            <th>RFC</th>
                             <th>&nbsp;</th>
                             <th>&nbsp;</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($productos as $producto)
+                        @foreach ($clientes as $cliente)
                         <tr>
-                            <td>{{$producto->id_material}}</td>
-                            <td>{{$producto->descripcion}}</td>
-                            <td>{{$producto->unidad_medida}}</td>
-                            <td>${{$producto->precio_1}}</td>
+                            <td>{{$cliente->id_cliente}}</td>
+                            <td>{{$cliente->razon_social}}</td>
+                            <td>{{$cliente->rfc}}</td>
                             <td>
                                 @csrf
-                                <a href="{{'productos/'.$producto->id_material.'/editar'}}">
+                                <a href="{{'clientes/'.$cliente->id_cliente.'/editar'}}">
                                     <input type="submit" value="Editar" class="btn btn-outline-success">
                                 </a>
                             </td>
                             <td>
-                                <form action="{{route('productos.destroy', $producto->id_material)}}" method="POST">
+                                <form action="{{route('clientes.destroy', $cliente->id_cliente)}}" method="POST">
                                     @method('DELETE')
                                     @csrf
                                     <input type="submit" value="Eliminar" class="btn btn-outline-danger"
