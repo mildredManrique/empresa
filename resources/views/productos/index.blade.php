@@ -16,16 +16,22 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid ">
+            <a class="navbar-brand " href="#">Nombre de Empresa</a>
+
+            <a class="nav-link" href="/clientes">Clientes</a>
+
+        </div>
+    </nav>
+
     <div class="container">
         <div class="row">
-            <div class="col-sm-8 mx-auto">
+            <div class="col mx-auto">
                 <div class="card-header">
                     <h2>Productos
                         <a href="productos/agregar">
                             <input type="submit" class="btn btn-outline-primary" value="Agregar Producto">
-                        </a>
-                        <a href="/clientes">
-                            <input type="button" class="btn btn-outline-primary" value="Clientes">
                         </a>
                     </h2>
                 </div>
@@ -69,5 +75,16 @@
         </div>
     </div>
 </body>
+
+<style>
+.navbar-brand {
+    margin-left: 50px;
+
+}
+
+.nav-link {
+    margin-right: 50px;
+}
+</style>
 
 </html>
