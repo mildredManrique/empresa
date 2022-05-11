@@ -72,4 +72,14 @@
       </script>
 </body>
 
+<style>
+    .navbar-brand {
+        margin-left: 50px;
+    
+    }
+    
+    .nav-link {
+        margin-right: 50px;
+    }
+    </style>
 </html>

@@ -61,5 +61,14 @@
     <script type="text/javascript" src="https://your-site-or-cdn.com/fontawesome/v5.15.4/js/conflict-detection.js">
       </script>
 </body>
-
+<style>
+    .navbar-brand {
+        margin-left: 50px;
+    
+    }
+    
+    .nav-link {
+        margin-right: 50px;
+    }
+    </style>
 </html>
