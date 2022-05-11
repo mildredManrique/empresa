@@ -25,3 +25,7 @@ Route::put('/clientes/{cliente}', 'ClienteController@update')->name('clientes.up
 Route::delete('/clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
 Route::get('/clientes/{cliente}/editar', 'ClienteController@edit')->name('clientes.edit');
 
+Route::get('/signup', 'UserController@getSignup')->name('user.signup');
+Route::post('/signup', 'UserController@postSignup')->name('user.signup');
+
+Route::get('/add-to-cart/{id_material}', 'ProductoController@getAddToCart')->name('producto.addToCart');

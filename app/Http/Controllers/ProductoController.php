@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
+use App\Cart;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+// use Session;
 
 class ProductoController extends Controller
 {
@@ -72,5 +75,19 @@ class ProductoController extends Controller
 
         return back();
 
+    }
+
+
+    public function getAddToCart(Request $request, $id_material){
+        $producto = Producto::find($id_material);
+        // $producto = Producto::where('id_material', $id_material);      
+        
+        $oldCart = Session::has('cart') ? Session::get('cart'): null;
+        $cart = new Cart($oldCart);
+        $cart->add($producto, $producto->id_material);
+
+        $request->session()->put('cart', $cart);
+        dd($request->session()->get('cart'));
+        return redirect()->route('/');
     }
 }

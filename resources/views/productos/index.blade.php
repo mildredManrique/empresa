@@ -16,15 +16,6 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid ">
-            <a class="navbar-brand " href="#">Nombre de Empresa</a>
-
-            <a class="nav-link" href="/clientes">Clientes</a>
-            <a class="nav-link" href="#">Shoping Cart</a>
-
-        </div>
-    </nav> -->
     @include('header')
 
     <div class="container">
