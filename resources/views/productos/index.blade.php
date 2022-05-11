@@ -16,18 +16,20 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid ">
             <a class="navbar-brand " href="#">Nombre de Empresa</a>
 
             <a class="nav-link" href="/clientes">Clientes</a>
+            <a class="nav-link" href="#">Shoping Cart</a>
 
         </div>
-    </nav>
+    </nav> -->
+    @include('header')
 
     <div class="container">
         <div class="row">
-            <div class="col mx-auto">
+            <div class="col mx-auto mt-3">
                 <div class="card-header">
                     <h2>Productos
                         <a href="productos/agregar">
@@ -67,6 +69,16 @@
                                         onclick="return confirm('¿Seguro que desea eliminar...?')">
                                 </form>
                             </td>
+                            <td>
+                                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 
+                                    .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 
+                                    1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 
+                                    12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 
+                                    1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                                    </svg></a>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -74,6 +86,15 @@
             </div>
         </div>
     </div>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="https://your-site-or-cdn.com/fontawesome/v5.15.4/js/conflict-detection.js">
+    </script>
+
+
 </body>
 
 <style>

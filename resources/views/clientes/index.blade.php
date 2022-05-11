@@ -16,18 +16,10 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid ">
-            <a class="navbar-brand " href="#">Nombre de Empresa</a>
-
-            <a class="nav-link" href="/">Productos</a>
-
-        </div>
-    </nav>
-
+    @include('header')
     <div class="container">
         <div class="row">
-            <div class="col mx-auto">
+            <div class="col mx-auto mt-3">
                 <div class="card-header">
                     <h2>Clientes
                         <a href="clientes/agregar">
@@ -72,6 +64,12 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="https://your-site-or-cdn.com/fontawesome/v5.15.4/js/conflict-detection.js">
+    </script>
 </body>
 
 <style>

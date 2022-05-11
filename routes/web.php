@@ -24,3 +24,4 @@ Route::get('/clientes/agregar', 'ClienteController@create')->name('clientes.crea
 Route::put('/clientes/{cliente}', 'ClienteController@update')->name('clientes.update');
 Route::delete('/clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
 Route::get('/clientes/{cliente}/editar', 'ClienteController@edit')->name('clientes.edit');
+
