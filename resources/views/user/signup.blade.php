@@ -29,7 +29,7 @@
                             @endforeach
                         </div>
                     @endif
-                        <form action="" method="post">
+                        <form action="{{ route('user.signup') }}" method="post">
                             <div class="form-group">
                                 <label for="email">E-Mail</label>
                                 <input type="text" class="form-control" id ="email" name="email">
@@ -38,7 +38,8 @@
                                 <label for="password">Password</label>
                                  <input type="password" class="form-control" id ="password" name="password">
                             </div>
-                                <button type="submit" class="btn btn-primary mt-2">Sign Up</button>                                
+                                <button type="submit" class="btn btn-primary mt-2">Sign Up</button>  
+                                {{ csrf_field()}}                             
                             </form>
                         </div>
                     </div>   
