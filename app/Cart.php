@@ -18,7 +18,7 @@ class Cart
    }
 
    public function add($item, $id_material) {
-       $storedItem = ['qty' => 0, 'pricio_1' => $item->pricio_1, 'item' => $item];
+       $storedItem = ['qty' => 0, 'precio_1' => $item->precio_1, 'item' => $item];
        if ($this->items) 
        {
            if(array_key_exists($id_material, $this->items))
@@ -31,6 +31,6 @@ class Cart
        $storedItem['precio_1'] = $item->precio_1 * $storedItem['qty'];
        $this->items[$id_material] = $storedItem;
        $this->totalQty++;
-       $this->totalPrecio += $item->precio_1;
+       $this->totalPrice += $item->precio_1;
    }
 }  
