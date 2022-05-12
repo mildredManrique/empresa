@@ -38,9 +38,19 @@
                               </svg>User Managment<span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="{{ route('user.signup') }}">Signup</a></li>
-                          <li><a class="dropdown-item" href="#">Signin</a></li>
-                          <li><a class="dropdown-item" href="#">Logout</a></li>
+                            @if(Auth::check())
+                            <li><a class="dropdown-item" href="{{ route('user.profile') }}">Perfil de Usuario</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ route('user.logout') }}">Salir</a></li>
+
+                            @else
+
+                            <li><a class="dropdown-item" href="{{ route('user.signup') }}">Registrarse</a></li>
+                            <li><a class="dropdown-item" href="{{ route('user.signin') }}">Iniciar Sesión</a></li>
+
+                            @endif
+                          
+                            
                           
                         </ul>
                       </li>

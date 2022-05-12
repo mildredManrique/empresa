@@ -25,7 +25,22 @@ Route::put('/clientes/{cliente}', 'ClienteController@update')->name('clientes.up
 Route::delete('/clientes/{cliente}', 'ClienteController@destroy')->name('clientes.destroy');
 Route::get('/clientes/{cliente}/editar', 'ClienteController@edit')->name('clientes.edit');
 
+Route::group(['middleware' => 'guest'], function(){
+
 Route::get('/signup', 'UserController@getSignup')->name('user.signup');
 Route::post('/signup', 'UserController@postSignup')->name('user.signup');
+
+Route::get('/signin', 'UserController@getSignin')->name('user.signin');
+Route::post('/signin', 'UserController@postSignin')->name('user.signin');
+
+});
+
+Route::group(['middleware' => 'auth'], function(){
+
+Route::get('/profile', 'UserController@getProfile')->name('user.profile');
+Route::get('/logout', 'UserController@getLogout')->name('user.logout');
+
+});
+
 
 Route::get('/add-to-cart/{id_material}', 'ProductoController@getAddToCart')->name('producto.addToCart');
