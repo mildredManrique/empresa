@@ -26,6 +26,7 @@ Route::delete('/clientes/{cliente}', 'ClienteController@destroy')->name('cliente
 Route::get('/clientes/{cliente}/editar', 'ClienteController@edit')->name('clientes.edit');
 
 Route::get('/add-to-cart/{id_material}', 'ProductoController@getAddToCart')->name('producto.addToCart');
+Route::get('/shopping-cart', 'ProductoController@getCart')->name('producto.shoppingCart');
 
 Route::group(['middleware' => 'guest'], function(){
 

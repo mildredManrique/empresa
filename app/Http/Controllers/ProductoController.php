@@ -65,9 +65,7 @@ class ProductoController extends Controller
         ]);
         
         return back()->with('status', 'Actualizado con éxito');
-    }
-
-    
+    }    
 
     public function destroy($id_material){
 
@@ -76,7 +74,6 @@ class ProductoController extends Controller
         return back();
 
     }
-
 
     public function getAddToCart(Request $request, $id_material){
         // $producto = Producto::find($id_material);
@@ -88,5 +85,14 @@ class ProductoController extends Controller
         $request->session()->put('cart', $cart);
         // dd($request->session()->get('cart'));        
         return redirect('/');
+    }
+
+    public function getCart(){
+        if(!Session::has('cart')){
+            return view('productos.shopping-cart', ['productos' =>null]);
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('productos.shopping-cart', ['productos' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 }
