@@ -59,7 +59,7 @@
             <hr>
             <div class="row justify-content-center mt-3">
                 <div class="col mx-auto mt-3">
-                   <button type="button" class="btn btn-success">Check Out</button>
+                   <a href="{{ route('checkout') }}" type="button" class="btn btn-success">Pagar</a>
                 </div>
             </div>
     @else

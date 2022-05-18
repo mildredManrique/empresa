@@ -28,6 +28,9 @@ Route::get('/clientes/{cliente}/editar', 'ClienteController@edit')->name('client
 Route::get('/add-to-cart/{id_material}', 'ProductoController@getAddToCart')->name('producto.addToCart');
 Route::get('/shopping-cart', 'ProductoController@getCart')->name('producto.shoppingCart');
 
+Route::get('/checkout', 'ProductoController@getCheckout')->name('checkout');
+Route::post('/checkout', 'ProductoController@postCheckout')->name('checkout');
+
 Route::group(['middleware' => 'guest'], function(){
 
 Route::get('/signup', 'UserController@getSignup')->name('user.signup');

@@ -83,7 +83,6 @@
     <script type="text/javascript" src="https://your-site-or-cdn.com/fontawesome/v5.15.4/js/conflict-detection.js">
     </script>
 
-
 </body>
 
 <style>
