@@ -26,6 +26,13 @@ Route::delete('/clientes/{cliente}', 'ClienteController@destroy')->name('cliente
 Route::get('/clientes/{cliente}/editar', 'ClienteController@edit')->name('clientes.edit');
 
 Route::get('/add-to-cart/{id_material}', 'ProductoController@getAddToCart')->name('producto.addToCart');
+
+Route::get('/reduce/{id_material}', 'ProductoController@getReduceByOne')->name('producto.reduceByOne');
+
+Route::get('/remove/{id_material}', 'ProductoController@getRemoveItem')->name('producto.remove');
+
+Route::get('/add-by-one/{id_material}', 'ProductoController@getAddByOne')->name('producto.addByOne');
+
 Route::get('/shopping-cart', 'ProductoController@getCart')->name('producto.shoppingCart');
 
 Route::get('/checkout', 'ProductoController@getCheckout')->name('checkout');

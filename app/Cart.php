@@ -33,4 +33,30 @@ class Cart
        $this->totalQty++;
        $this->totalPrice += $item->precio_1;
    }
+
+   public function reduceByOne($id_material)
+    {
+        $this->items[$id_material]['qty']--;
+        $this->items[$id_material]['precio_1']-= $this->items[$id_material]['item']['precio_1'];
+        $this->totalQty--;
+        $this->totalPrice -= $this->items[$id_material]['item']['precio_1'];
+
+        if ($this->items[$id_material]['qty']<=0)
+        {
+            //unset($this->items[$id_material]);
+            $this->removeItem($id_material);
+           
+        }   
+    }
+
+    public function removeItem($id_material)
+    {
+        $this->totalQty -= $this->items[$id_material]['qty'];
+        $this->totalPrice -= $this->items[$id_material]['precio_1'];
+        unset($this->items[$id_material]);
+        if ($this->totalQty<= 0){
+            $this->totalPrice= 0;
+        }
+    }
+
 }  
