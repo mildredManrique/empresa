@@ -36,6 +36,7 @@ Route::get('/add-by-one/{id_material}', 'ProductoController@getAddByOne')->name(
 Route::get('/shopping-cart', 'ProductoController@getCart')->name('producto.shoppingCart');
 
 Route::get('/checkout', 'ProductoController@getCheckout')->name('checkout');
+
 Route::post('/checkout', 'ProductoController@postCheckout')->name('checkout');
 
 Route::group(['middleware' => 'guest'], function(){
@@ -56,3 +57,4 @@ Route::get('/logout', 'UserController@getLogout')->name('user.logout');
 });
 
 
+//Route::resource('venta', 'VentaController');

@@ -22,6 +22,11 @@
         <div class="row">
             <div class="col mx-auto mt-3">
                 <div class="card-header">
+                    @if (session('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('success') }}
+                    </div>
+                    @endif
                     <h2>Productos
                         <a href="productos/agregar">
                             <input type="submit" class="btn btn-outline-primary" value="Agregar Producto">

@@ -8,6 +8,7 @@ use App\Cart;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Session;
+use App\Venta;
 
 class ProductoController extends Controller
 {
@@ -21,7 +22,6 @@ class ProductoController extends Controller
 
     }
 
-
     public function store(Request $request){
 
         Producto::create([
@@ -34,15 +34,11 @@ class ProductoController extends Controller
         return back()->with('status', 'Creado con éxito');   
      }
 
-
-
      public function create(){
         
         return view('productos.agregar');  
 
-     }
-
-     
+     }     
 
      public function edit($id_material)
      {
@@ -50,8 +46,6 @@ class ProductoController extends Controller
         
         return view('productos.editar', compact('producto')) ;
      }
-
-
 
      public function update(Request $request, $id_material)
     {
@@ -104,7 +98,11 @@ class ProductoController extends Controller
         $cart = new Cart($oldCart);
         $cart->reduceByOne($id_material);
 
-        Session::put('cart', $cart);
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        } 
         return redirect()->route('producto.shoppingCart');
     }
 
@@ -113,12 +111,13 @@ class ProductoController extends Controller
         $cart = new Cart($oldCart);
         $cart->removeItem($id_material);
 
-        Session::put('cart', $cart);
+        if(count($cart->items) > 0){
+            Session::put('cart', $cart);
+        } else {
+            Session::forget('cart');
+        }       
         return redirect()->route('producto.shoppingCart');
     }
-
-
-
 
     public function getCart(){
         if(!Session::has('cart')){
@@ -137,5 +136,27 @@ class ProductoController extends Controller
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
         return view('productos.checkout', ['total' => $total]);
+    }
+
+    public function postCheckout(Request $request)
+    {
+        if(!Session::has('cart')){
+            return view('productos.shopping-cart');
+        }
+            $oldCart = Session::get('cart');
+            $cart = new Cart($oldCart);
+
+        try{
+                Venta::create(array(
+                    "monto" => $cart->totalPrice,
+                    "descripcion" => "Test"
+                ));
+        
+            } catch(\Exception $e){
+                return redirect()->route('checkout')->with('error', $e->getMessage());
+            }
+
+        Session::forget('cart');
+        return redirect('/')->with('success', '¡Productos comprados con éxito!');
     }
 }
