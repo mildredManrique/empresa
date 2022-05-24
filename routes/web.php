@@ -35,9 +35,9 @@ Route::get('/add-by-one/{id_material}', 'ProductoController@getAddByOne')->name(
 
 Route::get('/shopping-cart', 'ProductoController@getCart')->name('producto.shoppingCart');
 
-Route::get('/checkout', 'ProductoController@getCheckout')->name('checkout');
+Route::get('/checkout', 'ProductoController@getCheckout')->name('checkout')->middleware('auth');
 
-Route::post('/checkout', 'ProductoController@postCheckout')->name('checkout');
+Route::post('/checkout', 'ProductoController@postCheckout')->name('checkout')->middleware('auth');
 
 Route::group(['middleware' => 'guest'], function(){
 

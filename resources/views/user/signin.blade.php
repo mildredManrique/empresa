@@ -41,11 +41,10 @@
                                 <button type="submit" class="btn btn-primary mt-2">Sign In</button>  
                                 {{ csrf_field()}}                             
                             </form>
+                            <p>¿No estas registrado?<a href="{{ route('user.signup') }}"> Registrarse</a></p>
                         </div>
                     </div>   
-                 </div>   
-                    
-
+                 </div>  
             </div>
         </div>
     </div>
