@@ -20,9 +20,21 @@
 
     <div class="container">
         <div class="row justify-content-center mt-3">
-            <div class="col-md-4 col-md-offset-4">               
+            <div class="col-md-8 col-md-offset-2">               
                <h1>User Profile</h1>
-
+               <hr>
+               <h3>Mis Ventas</h3>
+                @foreach ($ventas as $venta)
+               <div class="card mt-3" >
+                
+                <div class="card-footer">
+                    <strong>Precio Total: ${{ $venta->monto }}</strong>
+                </div>
+                <div class="card-footer">
+                    <strong>Fecha de la venta realizada: {{ $venta->created_at }}</strong>
+                </div>
+              </div>
+              @endforeach
             </div>
         </div>
     </div>

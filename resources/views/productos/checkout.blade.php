@@ -3,6 +3,11 @@
 @section('content')
     <div class="row justify-content-center mt-3">
         <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+            @if (session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session('error') }}
+                    </div>
+                    @endif
             <h1>Pagar </h1>
             <h4>Total a pagar: ${{ $total }}</h4>
             <input id= "total" type="hidden" display="none" value="{{$total}}">

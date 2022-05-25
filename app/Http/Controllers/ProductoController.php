@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Session;
 use App\Venta;
+use Auth;
 
 class ProductoController extends Controller
 {
@@ -149,7 +150,8 @@ class ProductoController extends Controller
         try{
                 Venta::create(array(
                     "monto" => $cart->totalPrice,
-                    "descripcion" => "Test"
+                    "descripcion" => "Test",
+                    'user_id'=>Auth::user()->id
                 ));
         
             } catch(\Exception $e){

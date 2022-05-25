@@ -17,6 +17,7 @@ class CreateVentasTable extends Migration
             $table->bigIncrements('id');
             $table->double('monto');
             $table->string('descripcion')->nullable();
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

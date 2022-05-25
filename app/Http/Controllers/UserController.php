@@ -63,7 +63,9 @@ class UserController extends Controller
     }
 
     public function getProfile(){
-        return view('user.profile');
+        $ventas = Auth::user()->ventas;
+        
+        return view('user.profile', ['ventas' => $ventas]);
     }
 
     public function getLogout() {

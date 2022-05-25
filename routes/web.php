@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Auth;
 
 Route::get('/', 'ProductoController@index');
 Route::post('productos', 'ProductoController@store')->name('productos.store');
@@ -54,6 +55,10 @@ Route::group(['middleware' => 'auth'], function(){
 Route::get('/profile', 'UserController@getProfile')->name('user.profile');
 Route::get('/logout', 'UserController@getLogout')->name('user.logout');
 
+});
+
+Route::get('/testing', function(){
+    return Auth::user()->id;
 });
 
 
